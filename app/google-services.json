@@ -1,0 +1,144 @@
+{
+  "project_info": {
+    "project_number": "486853675329",
+    "firebase_url": "https://fir-to-do-app-4b53f-default-rtdb.firebaseio.com",
+    "project_id": "fir-to-do-app-4b53f",
+    "storage_bucket": "fir-to-do-app-4b53f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:486853675329:android:25d225f7752c72610639c0",
+        "android_client_info": {
+          "package_name": "com.example.edusphere"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNs2b-f29eT4L0qKcxg6exvAv2PIh7ZPk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:486853675329:android:32fb7b23c5194d5f0639c0",
+        "android_client_info": {
+          "package_name": "com.example.firebase_to_do_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNs2b-f29eT4L0qKcxg6exvAv2PIh7ZPk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:486853675329:android:59d7832f13fc90e10639c0",
+        "android_client_info": {
+          "package_name": "com.example.firebasetrial"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNs2b-f29eT4L0qKcxg6exvAv2PIh7ZPk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:486853675329:android:aeea87a13f3f730e0639c0",
+        "android_client_info": {
+          "package_name": "com.example.mad_project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNs2b-f29eT4L0qKcxg6exvAv2PIh7ZPk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:486853675329:android:3929a106184f76900639c0",
+        "android_client_info": {
+          "package_name": "com.example.studentportal"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNs2b-f29eT4L0qKcxg6exvAv2PIh7ZPk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:486853675329:android:bebb29d7e60c441e0639c0",
+        "android_client_info": {
+          "package_name": "com.example.studentsphere"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNs2b-f29eT4L0qKcxg6exvAv2PIh7ZPk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:486853675329:android:c688b2ce4fb3f6340639c0",
+        "android_client_info": {
+          "package_name": "se3.com.fingerprintlogin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNs2b-f29eT4L0qKcxg6exvAv2PIh7ZPk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
