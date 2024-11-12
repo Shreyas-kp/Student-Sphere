@@ -8,6 +8,12 @@
     android:gravity="center">
 
     <EditText
+        android:id="@+id/sub"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Subject" />
+
+    <EditText
         android:id="@+id/total_lecs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,11 +25,25 @@
         android:layout_height="wrap_content"
         android:hint="Attended Lectures" />
 
+    <TextView
+        android:id="@+id/attendance_percentage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textSize="18sp"
+        tools:text="Percentage" />
+
     <Button
         android:id="@+id/calculateButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Calculate Holidays" />
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save Attendance Data" />
 
     <TextView
         android:id="@+id/lecs_left"

@@ -24,7 +24,7 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity {
 
     FirebaseAuth auth;
-    Button buttonLogout;
+    Button buttonLogout, buttonCalculateHolidays, buttonEditProfile;
     TextView textView;
     FirebaseUser user;
 
@@ -35,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
         buttonLogout = findViewById(R.id.logout);
+        buttonCalculateHolidays = findViewById(R.id.calculate_holidays);
+        buttonEditProfile = findViewById(R.id.edit_profile);
         textView = findViewById(R.id.user_details);
 //        buttonUpdateProfile = findViewById(R.id.update_profile);
         user = auth.getCurrentUser();
@@ -54,53 +56,67 @@ public class MainActivity extends AppCompatActivity {
             finish();
         });
 
-        // Create a new user with a first and last name
-        Map<String, Object> user = new HashMap<>();
-        user.put("first", "Ada");
-        user.put("last", "Lovelace");
-        user.put("born", 1815);
+        buttonCalculateHolidays.setOnClickListener(view -> {
+            // Create an Intent to start CalculateHolidays Activity
+            Intent intent = new Intent(getApplicationContext(), CalculateHolidays.class);
+            startActivity(intent);
+            finish();
+        });
 
-// Add a new document with a generated ID
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        buttonEditProfile.setOnClickListener(view -> {
+            // Create an Intent to start EditProfile Activity
+            Intent intent = new Intent(getApplicationContext(), EditProfile.class);
+            startActivity(intent);
+            finish();
+        });
 
-        db.collection("users")
-                .add(user)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w(TAG, "Error adding document", e);
-                    }
-                });
-
-
-        // Create a new user with a first, middle, and last name
-        Map<String, Object> user1 = new HashMap<>();
-        user1.put("first", "Alan");
-        user1.put("middle", "Mathison");
-        user1.put("last", "Turing");
-        user1.put("born", 1912);
-
-// Add a new document with a generated ID
-        db.collection("users")
-                .add(user1)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w(TAG, "Error adding document", e);
-                    }
-                });
+//        // Create a new user with a first and last name
+//        Map<String, Object> user = new HashMap<>();
+//        user.put("first", "Ada");
+//        user.put("last", "Lovelace");
+//        user.put("born", 1815);
+//
+//// Add a new document with a generated ID
+//        FirebaseFirestore db = FirebaseFirestore.getInstance();
+//
+//        db.collection("users")
+//                .add(user)
+//                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+//                    @Override
+//                    public void onSuccess(DocumentReference documentReference) {
+//                        Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
+//                    }
+//                })
+//                .addOnFailureListener(new OnFailureListener() {
+//                    @Override
+//                    public void onFailure(@NonNull Exception e) {
+//                        Log.w(TAG, "Error adding document", e);
+//                    }
+//                });
+//
+//
+//        // Create a new user with a first, middle, and last name
+//        Map<String, Object> user1 = new HashMap<>();
+//        user1.put("first", "Alan");
+//        user1.put("middle", "Mathison");
+//        user1.put("last", "Turing");
+//        user1.put("born", 1912);
+//
+//// Add a new document with a generated ID
+//        db.collection("users")
+//                .add(user1)
+//                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+//                    @Override
+//                    public void onSuccess(DocumentReference documentReference) {
+//                        Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
+//                    }
+//                })
+//                .addOnFailureListener(new OnFailureListener() {
+//                    @Override
+//                    public void onFailure(@NonNull Exception e) {
+//                        Log.w(TAG, "Error adding document", e);
+//                    }
+//                });
 
     }
 }
