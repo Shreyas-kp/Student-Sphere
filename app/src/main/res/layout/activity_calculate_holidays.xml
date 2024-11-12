@@ -11,19 +11,22 @@
         android:id="@+id/sub"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Subject" />
+        android:hint="Subject"
+        style="@style/CustomEditTextStyle"/>
 
     <EditText
         android:id="@+id/total_lecs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Total Lectures" />
+        android:hint="Total Lectures"
+        style="@style/CustomEditTextStyle"/>
 
     <EditText
         android:id="@+id/attended_lecs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Attended Lectures" />
+        android:hint="Attended Lectures"
+        style="@style/CustomEditTextStyle"/>
 
     <TextView
         android:id="@+id/attendance_percentage"
@@ -31,7 +34,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:textSize="18sp"
-        tools:text="Percentage" />
+        tools:text="Percentage"
+        style="@style/CustomEditTextStyle"
+        android:layout_marginBottom="10dp"/>
 
     <Button
         android:id="@+id/calculateButton"
@@ -52,5 +57,6 @@
         android:layout_marginTop="16dp"
         android:textSize="18sp"
         android:text="Lectures Left: "
-        tools:text="Lectures Left: " />
+        tools:text="Lectures Left: "
+        style="@style/CustomEditTextStyle"/>
 </LinearLayout>

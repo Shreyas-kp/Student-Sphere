@@ -6,6 +6,17 @@
     android:layout_gravity="center"
     android:padding="16dp">
 
+    <ImageView
+        android:id="@+id/themeToggle"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginBottom="20dp"
+        android:layout_gravity="right"
+        android:src="@drawable/contrast"
+        android:contentDescription="@string/toggle_theme"
+        android:clickable="true"
+        android:focusable="true" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,7 +27,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="WELCOME!"
-            android:layout_marginBottom="20dp" />
+            android:layout_marginBottom="20dp"
+            android:textColor="@color/burnt_orange"/>
 
         <TextView
             android:id="@+id/user_details"
@@ -24,7 +36,8 @@
             android:layout_height="wrap_content"
             android:text="User Email"
             android:layout_marginBottom="20dp"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:textColor="@color/burnt_orange"/>
 
         <Button
             android:id="@+id/logout"

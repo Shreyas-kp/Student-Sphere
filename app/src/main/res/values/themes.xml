@@ -1,9 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
+
+<!--    &lt;!&ndash; Define color palette &ndash;&gt;-->
+<!--    <color name="jet_black">#060606</color>-->
+<!--    <color name="charcoal_black">#151515</color>-->
+<!--    <color name="burnt_orange">#C36211</color>-->
+<!--    <color name="sunset_orange">#DE9050</color>-->
+<!--    <color name="teal_green">#02807D</color>-->
+<!--    <color name="deep_teal">#095D67</color>-->
+<!--    <color name="forest_green">#00563E</color>-->
+<!--    <color name="vivid_orange">#FF7F01</color>-->
+<!--    <color name="bright_gold">#FEA501</color>-->
+<!--    <color name="dark_gray">#333333</color>-->
+<!--    <color name="pure_black">#000000</color>-->
+<!--    <color name="white">#FFFFFFFF</color>-->
+
+    <!-- Define Theme -->
     <!-- Base application theme. -->
     <style name="Base.Theme.StudentPortal" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <!-- Primary color for both themes -->
+        <item name="colorPrimary">@color/burnt_orange</item>
+        <item name="colorPrimaryVariant">@color/sunset_orange</item>
+
+        <!-- Secondary colors -->
+        <item name="colorSecondary">@color/teal_green</item>
+        <item name="colorSecondaryVariant">@color/deep_teal</item>
+
+        <!-- Text color -->
+        <item name="android:textColorPrimary">@color/jet_black</item>
+        <item name="android:textColorSecondary">@color/dark_gray</item>
     </style>
 
-    <style name="Theme.StudentPortal" parent="Base.Theme.StudentPortal" />
+    <!-- Light Theme Customizations -->
+    <style name="Theme.StudentPortal.Light" parent="Base.Theme.StudentPortal">
+        <!-- Light theme background colors -->
+        <item name="android:colorBackground">@color/white</item>
+        <item name="colorOnPrimary">@color/pure_black</item>
+        <item name="colorSurface">@color/white</item>
+
+        <!-- Toolbar color -->
+        <item name="colorPrimary">@color/burnt_orange</item>
+        <item name="colorPrimaryVariant">@color/vivid_orange</item>
+
+        <!-- Accent colors -->
+        <item name="colorAccent">@color/bright_gold</item>
+
+        <!-- Button background color for light mode -->
+        <item name="colorButtonNormal">@color/burnt_orange</item>
+    </style>
+
+    <!-- Dark Theme Customizations -->
+    <style name="Theme.StudentPortal.Dark" parent="Base.Theme.StudentPortal">
+        <!-- Dark theme background colors -->
+        <item name="android:colorBackground">@color/charcoal_black</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSurface">@color/dark_gray</item>
+
+        <!-- Toolbar color -->
+        <item name="colorPrimary">@color/deep_teal</item>
+        <item name="colorPrimaryVariant">@color/forest_green</item>
+
+        <!-- Accent colors -->
+        <item name="colorAccent">@color/sunset_orange</item>
+
+        <!-- Button background color for dark mode -->
+        <item name="colorButtonNormal">@color/deep_teal</item>
+    </style>
 </resources>

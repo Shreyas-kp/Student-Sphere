@@ -18,27 +18,43 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.widget.ImageView;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
     FirebaseAuth auth;
-    Button buttonLogout, buttonCalculateHolidays, buttonEditProfile;
+    Button buttonLogout, buttonCalculateHolidays, buttonEditProfile, buttonUploadNotes;
     TextView textView;
     FirebaseUser user;
+    private ImageView themeToggle;
+    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
+        loadTheme();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        themeToggle = findViewById(R.id.themeToggle);
+        updateIcon();
+
+        themeToggle.setOnClickListener(view -> toggleTheme());
+
 
         auth = FirebaseAuth.getInstance();
         buttonLogout = findViewById(R.id.logout);
         buttonCalculateHolidays = findViewById(R.id.calculate_holidays);
         buttonEditProfile = findViewById(R.id.edit_profile);
+        buttonUploadNotes = findViewById(R.id.upload_notes);
         textView = findViewById(R.id.user_details);
-//        buttonUpdateProfile = findViewById(R.id.update_profile);
+
         user = auth.getCurrentUser();
 
         if (user == null) {
@@ -69,6 +85,14 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         });
+
+        buttonUploadNotes.setOnClickListener(view -> {
+            Intent intent = new Intent(getApplicationContext(), UploadNotes.class);
+            startActivity(intent);
+            finish();
+        });
+
+
 
 //        // Create a new user with a first and last name
 //        Map<String, Object> user = new HashMap<>();
@@ -118,5 +142,52 @@ public class MainActivity extends AppCompatActivity {
 //                    }
 //                });
 
+    }
+    private void loadTheme() {
+        sharedPreferences = getSharedPreferences("user_preferences", MODE_PRIVATE);
+        boolean isDarkMode = sharedPreferences.getBoolean("isDarkMode", false);
+
+        // Apply the theme based on saved preference or system default
+        if (sharedPreferences.contains("isDarkMode")) {
+            if (isDarkMode) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            }
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
+        }
+    }
+
+
+    private void toggleTheme() {
+        boolean isDarkMode = sharedPreferences.getBoolean("isDarkMode", false);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        if (isDarkMode) {
+            // Switch to light mode
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            editor.putBoolean("isDarkMode", false);
+        } else {
+            // Switch to dark mode
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            editor.putBoolean("isDarkMode", true);
+        }
+        editor.apply();
+
+        // Update the icon based on the new mode
+        updateIcon();
+
+        // Recreate the activity to apply the new theme instantly
+        recreate();
+    }
+
+    private void updateIcon() {
+        boolean isDarkMode = sharedPreferences.getBoolean("isDarkMode", false);
+        if (isDarkMode) {
+            themeToggle.setImageResource(R.drawable.moon); // Light mode icon
+        } else {
+            themeToggle.setImageResource(R.drawable.contrast); // Dark mode icon
+        }
     }
 }

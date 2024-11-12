@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CustomEditTextStyle">
+        <item name="android:textColor">@color/burnt_orange</item>
+        <item name="android:textColorHint">@color/deep_teal</item> <!-- Optional: set hint color -->
+    </style>
+
+    <!-- Base application theme -->
+    <style name="Theme.StudentPortal" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Primary color for both themes -->
+        <item name="colorPrimary">@color/burnt_orange</item>
+        <item name="colorPrimaryVariant">@color/sunset_orange</item>
+
+        <!-- Secondary colors -->
+        <item name="colorSecondary">@color/teal_green</item>
+        <item name="colorSecondaryVariant">@color/deep_teal</item>
+
+        <!-- Text color -->
+        <item name="android:textColorPrimary">@color/jet_black</item>
+        <item name="android:textColorSecondary">@color/dark_gray</item>
+    </style>
+</resources>
+

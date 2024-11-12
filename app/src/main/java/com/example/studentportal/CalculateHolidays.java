@@ -1,6 +1,5 @@
 package com.example.studentportal;
 
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -12,8 +11,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -29,17 +26,6 @@ public class CalculateHolidays extends AppCompatActivity {
     FirebaseAuth mAuth;
 
     @Override
-    public void onStart() {
-        super.onStart();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
-            Intent intent=new Intent(getApplicationContext(),MainActivity.class);
-            startActivity(intent);
-            finish();
-        }
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculate_holidays);
@@ -47,21 +33,26 @@ public class CalculateHolidays extends AppCompatActivity {
         FirebaseAuth auth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
         user = auth.getCurrentUser();
+        mAuth = FirebaseAuth.getInstance();
 
+        // Initialize views
         totalLecs = findViewById(R.id.total_lecs);
         attendedLecs = findViewById(R.id.attended_lecs);
         subject = findViewById(R.id.sub);
         attendancePercentage = findViewById(R.id.attendance_percentage);
         lecsLeft = findViewById(R.id.lecs_left);
         Button calculateButton = findViewById(R.id.calculateButton);
+        saveButton = findViewById(R.id.saveButton); // Initialize saveButton
+
+        // Check if the user is authenticated
+        if (user == null) {
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
 
         calculateButton.setOnClickListener(v -> calculateAttendance());
         saveButton.setOnClickListener(v -> saveAttendanceData());
-
-//        if (user != null) {
-//            subject.getText();
-//            loadAttendanceData();
-//        }
     }
 
     // Calculate the attendance percentage and lectures left

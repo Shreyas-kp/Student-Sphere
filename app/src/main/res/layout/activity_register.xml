@@ -27,7 +27,8 @@
         android:id="@+id/email"
         android:hint="@string/email"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent">
+        android:layout_width="match_parent"
+        style="@style/CustomEditTextStyle">
     </com.google.android.material.textfield.TextInputEditText>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -38,7 +39,8 @@
         android:id="@+id/password"
         android:hint="@string/password"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent">
+        android:layout_width="match_parent"
+        style="@style/CustomEditTextStyle">
     </com.google.android.material.textfield.TextInputEditText>
     <ProgressBar
         android:id="@+id/progressBar"

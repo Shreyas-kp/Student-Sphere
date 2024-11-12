@@ -6,4 +6,5 @@
     <string name="click_to_register">Click To Register</string>
     <string name="register">Register</string>
     <string name="click_to_login">Click to Login</string>
+    <string name="toggle_theme">Toggle Theme</string>
 </resources>
