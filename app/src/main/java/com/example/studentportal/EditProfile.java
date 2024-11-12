@@ -1,16 +1,20 @@
 package com.example.studentportal;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -37,10 +41,23 @@ public class EditProfile extends AppCompatActivity {
     private FirebaseUser user;
     private DocumentReference userDocRef;
 
+    private static final int PICK_IMAGE_REQUEST = 1;
+    private ImageView profileImageView;
+    private Uri imageUri; // Uri to store the image selected
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+        profileImageView = findViewById(R.id.imageViewProfilePhoto);
+        // Set an OnClickListener on the ImageView to pick an image
+        profileImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openGallery();
+            }
+        });
 
         // Initialize Firebase Auth and Firestore
         mAuth = FirebaseAuth.getInstance();
@@ -70,6 +87,22 @@ public class EditProfile extends AppCompatActivity {
                 saveUserProfile();
             }
         });
+    }
+
+    private void openGallery() {
+        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        intent.setType("image/*");
+        startActivityForResult(intent, PICK_IMAGE_REQUEST);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
+            imageUri = data.getData();
+            // Set the selected image to the ImageView
+            profileImageView.setImageURI(imageUri);
+        }
     }
 
     private void loadUserProfile() {

@@ -8,25 +8,17 @@
 
     <!-- Profile Image -->
     <ImageView
-        android:id="@+id/profile_image"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:id="@+id/imageViewProfilePhoto"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
         android:src="@drawable/ic_launcher_background"
-        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
         android:scaleType="centerCrop"
-        android:layout_marginBottom="16dp"
-        android:contentDescription="Profile Image" />
+        android:layout_marginBottom="50sp"/>
 
-    <!-- Button to Change Profile Image -->
-    <Button
-        android:id="@+id/button_change_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Change Profile Picture"
-        android:layout_gravity="center"
-        android:layout_marginBottom="24dp" />
 
-    <!-- Name Input Field -->
+        <!-- Name Input Field -->
     <EditText
         android:id="@+id/edit_text_name"
         android:layout_width="match_parent"
