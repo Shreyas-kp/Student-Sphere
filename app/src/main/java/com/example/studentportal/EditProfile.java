@@ -3,6 +3,7 @@ package com.example.studentportal;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -99,12 +100,61 @@ public class EditProfile extends AppCompatActivity {
         });
     }
 
+//    private void saveUserProfile() {
+//        String name = editTextName.getText().toString().trim();
+//        String email = editTextEmail.getText().toString().trim();
+//        String phone = editTextNumber.getText().toString().trim();
+//
+//        // Validate input
+//        if (TextUtils.isEmpty(name)) {
+//            editTextName.setError("Name is required");
+//            editTextName.requestFocus();
+//            return;
+//        }
+//        if (TextUtils.isEmpty(email)) {
+//            editTextEmail.setError("Email is required");
+//            editTextEmail.requestFocus();
+//            return;
+//        }
+//        if (TextUtils.isEmpty(phone)) {
+//            editTextNumber.setError("Phone is required");
+//            editTextNumber.requestFocus();
+//            return;
+//        }
+//
+//        progressBar.setVisibility(View.VISIBLE);
+//
+//        // Create a Map with the new profile data
+//        Map<String, Object> userProfile = new HashMap<>();
+//        userProfile.put("name", name);
+//        userProfile.put("email", email);
+//        userProfile.put("phone", phone);
+//
+//        // Save data to Firestore
+//        userDocRef.set(userProfile)
+//                .addOnSuccessListener(new OnSuccessListener<Void>() {
+//                    @Override
+//                    public void onSuccess(Void aVoid) {
+//                        progressBar.setVisibility(View.GONE);
+//                        Toast.makeText(EditProfile.this, "Profile updated successfully", Toast.LENGTH_SHORT).show();
+//                        finish();
+//                    }
+//                })
+//                .addOnFailureListener(new OnFailureListener() {
+//                    @Override
+//                    public void onFailure(@NonNull Exception e) {
+//                        progressBar.setVisibility(View.GONE);
+//                        Toast.makeText(EditProfile.this, "Failed to update profile: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//    }
+
     private void saveUserProfile() {
         String name = editTextName.getText().toString().trim();
         String email = editTextEmail.getText().toString().trim();
-        String phone = editTextNumber.getText().toString().trim();
+        String phone = editTextNumber.getText().toString().trim(); // Make sure phone is treated as String
 
-        // Validate input
+        // Check if inputs are valid
         if (TextUtils.isEmpty(name)) {
             editTextName.setError("Name is required");
             editTextName.requestFocus();
@@ -115,12 +165,23 @@ public class EditProfile extends AppCompatActivity {
             editTextEmail.requestFocus();
             return;
         }
+        if (!isValidEmail(email)) {
+            editTextEmail.setError("Invalid email format");
+            editTextEmail.requestFocus();
+            return;
+        }
         if (TextUtils.isEmpty(phone)) {
             editTextNumber.setError("Phone is required");
             editTextNumber.requestFocus();
             return;
         }
+        if (phone.length() < 8) {
+            editTextNumber.setError("Phone number must be at least 8 digits");
+            editTextNumber.requestFocus();
+            return;
+        }
 
+        // Show progress bar
         progressBar.setVisibility(View.VISIBLE);
 
         // Create a Map with the new profile data
@@ -136,7 +197,11 @@ public class EditProfile extends AppCompatActivity {
                     public void onSuccess(Void aVoid) {
                         progressBar.setVisibility(View.GONE);
                         Toast.makeText(EditProfile.this, "Profile updated successfully", Toast.LENGTH_SHORT).show();
-                        finish();
+
+                        // Navigate to MainActivity after successful profile update
+                        Intent intent = new Intent(EditProfile.this, MainActivity.class);
+                        startActivity(intent);  // Start MainActivity
+                        finish();  // Close EditProfile activity to prevent user from going back to it
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -144,9 +209,22 @@ public class EditProfile extends AppCompatActivity {
                     public void onFailure(@NonNull Exception e) {
                         progressBar.setVisibility(View.GONE);
                         Toast.makeText(EditProfile.this, "Failed to update profile: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+
+                        // Log the failure
+                        Log.e("EditProfile", "Profile update failed: " + e.getMessage());
                     }
                 });
     }
+
+    /**
+     * Validates the email format using a simple regex
+     */
+    private boolean isValidEmail(String email) {
+        // A simple regex for email validation (basic format)
+        String emailPattern = "[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}";
+        return email.matches(emailPattern);
+    }
+
 
     @Override
     public void onBackPressed() {
