@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center">
+
+    <EditText
+        android:id="@+id/total_lecs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Total Lectures" />
+
+    <EditText
+        android:id="@+id/attended_lecs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Attended Lectures" />
+
+    <Button
+        android:id="@+id/calculateButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Calculate Holidays" />
+
+    <TextView
+        android:id="@+id/lecs_left"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textSize="18sp"
+        android:text="Lectures Left: "
+        tools:text="Lectures Left: " />
+</LinearLayout>
