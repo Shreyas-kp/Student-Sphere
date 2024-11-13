@@ -50,7 +50,7 @@ To get started with the **Student-Sphere** app, follow these steps:
 
 - **Android Studio** (latest version)
 - **Java Development Kit (JDK)** installed on your system
-- A **Google Firebase** account (if using Firebase for authentication and storage)
+- A **Google Firebase** account (for authentication and storage)
   
 ### Installation
 
@@ -88,8 +88,8 @@ Once the app is up and running, here are the key functionalities:
 
 - **Java**: The programming language used for developing the Android application.
 - **Android SDK**: The software development kit for building Android applications.
-- **Firebase**: Used for user authentication and storing data (if applicable).
-- **SQLite**: May be used for local task management (if applicable).
+- **Firebase**: Used for user authentication and storing data.
+- **SQLite**: May be used for local task management.
 - **XML**: Used for designing the app's UI in Android.
 
 ---
