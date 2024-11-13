@@ -62,7 +62,7 @@ To get started with the **Student-Sphere** app, follow these steps:
 
 2. Open the project in **Android Studio**.
 
-3. If the project is using Firebase, follow the instructions in the Firebase documentation to configure your Firebase project and connect it with your Android app. You'll need to add the `google-services.json` file to the `app/` directory.
+3. Since the project is using Firebase, follow the instructions in the Firebase documentation to configure your Firebase project and connect it with your Android app. You'll need to add the `google-services.json` file to the `app/` directory.
 
 4. Build the project and run the app on your emulator or physical device.
 
@@ -113,4 +113,4 @@ This project is open-source and available under the [MIT License](LICENSE).
 ## Acknowledgments
 
 - Thanks to all contributors and the Android community for their open-source libraries and frameworks that made this project possible.
-- Firebase for authentication and data storage (if used).
+- Firebase for authentication and data storage.
