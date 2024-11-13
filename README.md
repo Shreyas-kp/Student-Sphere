@@ -1,6 +1,6 @@
 # Student-Sphere
 
-**Student-Sphere** is a student-oriented Android application designed to enhance the student experience by providing features such as profile management, note sharing, holiday tracking, and student login functionalities. The app is built with Java and Android SDK, offering a simple and interactive interface for students to manage their academic and extracurricular activities.
+**Student-Sphere** is a student-oriented Android application designed to enhance the student experience by providing features such as profile management, note sharing, holiday tracking, task management, and student login functionalities. The app is built with Java and Android SDK, offering a simple and interactive interface for students to manage their academic and extracurricular activities.
 
 ---
 
@@ -9,8 +9,9 @@
 - **User Authentication**: Allows students to register and log in to their accounts.
 - **Profile Management**: Students can edit and update their profiles, including personal and academic information.
 - **Holiday Tracker**: The app tracks holidays and important academic dates to keep students informed.
+- **To-Do List Management**: Students can add, manage, and track their academic tasks and to-dos.
 - **Note Uploading**: Students can upload and share notes with others.
-- **Main Activity**: Acts as the central hub where users can navigate to various features.
+- **Main Activity**: Acts as the central hub where users can navigate to various sections like Profile, Holidays, Notes, etc.
 
 ---
 
@@ -35,6 +36,9 @@ The following are the core files of the project:
 
 6. **UploadNotes.java**  
    Enables students to upload and share their notes with others in the student community.
+
+7. **TODO.java**  
+   Responsible for managing to-do lists or tasks within the app. Students can create and manage their daily academic tasks, mark them as completed, and track deadlines. This file may also interact with a local database (like SQLite or Firebase) to persist task data.
 
 ---
 
@@ -74,6 +78,8 @@ Once the app is up and running, here are the key functionalities:
 
 - **Holiday Tracker**: The app displays important holidays for students, and you can view this information by navigating to the Holidays section.
 
+- **To-Do List Management**: In the To-Do section, students can add tasks, mark them as complete, or delete them. This helps in tracking assignments, projects, and other academic responsibilities.
+
 - **Upload Notes**: In the Upload Notes section, you can upload your study materials (such as PDFs, images, etc.) for others to access.
 
 ---
@@ -83,6 +89,7 @@ Once the app is up and running, here are the key functionalities:
 - **Java**: The programming language used for developing the Android application.
 - **Android SDK**: The software development kit for building Android applications.
 - **Firebase**: Used for user authentication and storing data (if applicable).
+- **SQLite**: May be used for local task management (if applicable).
 - **XML**: Used for designing the app's UI in Android.
 
 ---
