@@ -7,4 +7,13 @@
     <string name="register">Register</string>
     <string name="click_to_login">Click to Login</string>
     <string name="toggle_theme">Toggle Theme</string>
+
+    <!-- Spinner options -->
+    <string-array name="priority_options">
+        <item>High</item>
+        <item>Medium</item>
+        <item>Low</item>
+    </string-array>
+
+
 </resources>

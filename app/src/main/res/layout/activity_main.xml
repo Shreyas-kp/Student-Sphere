@@ -71,6 +71,14 @@
             android:padding="20sp"
             android:layout_margin="10dp"/>
 
+        <Button
+            android:id="@+id/todo_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TODO LIST"
+            android:padding="20sp"
+            android:layout_margin="10dp"/>
+
     </LinearLayout>
 
     <LinearLayout

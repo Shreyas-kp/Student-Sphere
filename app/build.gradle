@@ -40,7 +40,11 @@ dependencies {
     implementation libs.firebase.database
     implementation libs.firebase.messaging
     implementation libs.firebase.storage
+    implementation libs.recyclerview
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    implementation 'com.google.firebase:firebase-core:21.1.0'
+    implementation 'com.google.firebase:firebase-analytics:21.1.0'
 }

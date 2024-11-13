@@ -145,4 +145,13 @@ public class UploadNotes extends AppCompatActivity {
                     });
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(UploadNotes.this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish(); // Optionally close EditProfile so it won’t stay in the back stack
+    }
 }

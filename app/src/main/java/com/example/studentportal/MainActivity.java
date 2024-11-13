@@ -30,7 +30,7 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity {
 
     FirebaseAuth auth;
-    Button buttonLogout, buttonCalculateHolidays, buttonEditProfile, buttonUploadNotes;
+    Button buttonLogout, buttonCalculateHolidays, buttonEditProfile, buttonUploadNotes, buttonTodoList;
     TextView textView;
     FirebaseUser user;
     private ImageView themeToggle;
@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         buttonCalculateHolidays = findViewById(R.id.calculate_holidays);
         buttonEditProfile = findViewById(R.id.edit_profile);
         buttonUploadNotes = findViewById(R.id.upload_notes);
+        buttonTodoList = findViewById(R.id.todo_list);
         textView = findViewById(R.id.user_details);
 
         user = auth.getCurrentUser();
@@ -92,6 +93,11 @@ public class MainActivity extends AppCompatActivity {
             finish();
         });
 
+        buttonTodoList.setOnClickListener(view -> {
+            Intent intent = new Intent(getApplicationContext(), TodoList.class);
+            startActivity(intent);
+            finish();
+        });
 
 
 //        // Create a new user with a first and last name
